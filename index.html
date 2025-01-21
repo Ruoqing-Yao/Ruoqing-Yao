@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Professional Academic Website">
+  <title>Your Name - Academic Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: #003c6c;
+      color: white;
+      padding: 1.5rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 1.2rem;
+    }
+
+    nav {
+      background-color: #6963b1;
+      color: white;
+      padding: 0.8rem 1rem;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    section h2 {
+      color: #004080;
+      border-bottom: 2px solid #004080;
+      padding-bottom: 0.5rem;
+    }
+
+    footer {
+      background-color: #004080;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    footer a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Ruoqing Yao</h1>
+    <p>Ph.D. student in Linguistics, UC Santa Cruz</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#presentations">Presentations</a>
+    <a href="#cv">CV</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section id="about" style="display: flex; align-items: flex-start; gap: 20px; max-width: 900px; margin: 2rem auto; padding: 1rem; background-color: #fff; border-radius: 8px;">
+      <img src="headshot.png" style="width: 200px; height: 200px; object-fit: cover; border: 2px solid #fff;">
+      <div>
+        <h2>About Me</h2>
+        <p>
+          Hello! My name is Ruoqing Yao (姚若轻). I'm a second-year PhD student in the Linguistics Department at UC Santa Cruz. Before joining UCSC, I received my B.S. in Computer Science and Linguistics from William & Mary. I'm originally from Beijing, China.
+
+        </p>
+      </div>
+    </section>
+    
+
+    <section id="research">
+      <h2>Research</h2>
+      <p>
+        I'm a psycholinguist on the most parts. My main research interest lies on the intersect of ambiguity resolution and pronoun resolution. I am currently investigating constraints on the pronominal ambiguity advantage effect. 
+      </p>
+    </section>
+
+    <section id="presentations">
+      <h2>Presentations</h2>
+    
+      <h3>2024</h3>
+      <p>
+        <strong>Yao, R.</strong>, Lu, J., Degen, J. <em>Perceived interpretability predicts satiability for CNPC islands but not WH islands.</em> California Meeting on Psycholinguistics. Stanford University, Stanford, CA.
+      </p>
+      <p>
+        <strong>Yao, R.</strong>, Hogoboom, A. <em>Resumptive Pronouns in Islands Show Confusability Advantage Effect.</em> 2024 Linguistics Society of America Annual Meeting. New York City, NY.
+      </p>
+    
+      <h3>2023</h3>
+      <p>
+        <strong>Yao, R.</strong> <em>The Processing of Resumptive Pronouns in Islands.</em> Graduate and Honors Research Symposium. William & Mary, Williamsburg, VA.
+      </p>
+
+      <h2>Posters</h2>
+
+      <h3>2022</h3>
+      <p>
+        Parker, D., Glauser, C., Rust, G., Wright, N., <strong>Yao, R.</strong> <em>Antecedent reactivation leads to faster retrieval: Evidence from ellipsis.</em> Poster at the 35th Annual Conference on Human Sentence Processing. University of California, Santa Cruz, CA.
+      </p>
+      <p>
+        <strong>Yao, R.</strong> <em>Satiability and Interpretability.</em> Poster at the W&M 2022 Fall Undergraduate Research Symposium. William & Mary, Williamsburg, VA.
+      </p>
+
+    </section>
+
+    <section id="cv">
+      <h2>Curriculum Vitae</h2>
+      <p>You can find my CV here:</p>
+  
+      <!-- Clickable link to open CV -->
+      <a id="cv-link" href="CV.pdf" target="_blank">View CV (PDF)</a>
+    </section>
+  
+    
+    
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <ul>
+        <li>Email: ryao10 [at] ucsc [dot] edu</a></li>
+        <li>LinkedIn: <a href="https://www.linkedin.com/in/ruoqing-yao-8161121a2/" target="_blank">https://www.linkedin.com/in/ruoqing-yao-8161121a2/</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      &copy; <span id="year"></span> Ruoqing Yao. All rights reserved.
+    </p>
+  </footer>
+
+  <script>
+    // Dynamically set the current year in the footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
