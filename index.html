@@ -1,209 +1,271 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Professional Academic Website">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ruoqing Yao — Academic Website" />
   <title>Ruoqing Yao</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      color: #333;
-      background-color: #f9f9f9;
+    :root{
+      --bg:#faf7ff;
+      --surface:#ffffff;
+      --text:#242424;
+      --muted:#666;
+      --brand:#6d28d9;
+      --brand-600:#7c3aed;
+      --brand-100:#ede9fe;
+      --link:#5b21b6;
+      --ring:#c4b5fd;
+      --border:#ddd;
+      --shadow:0 1px 2px rgba(0,0,0,.06);
     }
-
-    header {
-      background-color: #003c6c;
-      color: white;
-      padding: 1.5rem 1rem;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-
-    header p {
-      margin: 0.5rem 0 0;
-      font-size: 1.2rem;
-    }
-
-    nav {
-      background-color: #6963b1;
-      color: white;
-      padding: 0.8rem 1rem;
-      text-align: center;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-size: 1rem;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    section {
-      margin-bottom: 2rem;
-    }
-
-    section h2 {
-      color: #004080;
-      border-bottom: 2px solid #004080;
-      padding-bottom: 0.5rem;
-    }
-
-    footer {
-      background-color: #004080;
-      color: white;
-      text-align: center;
-      padding: 1rem 0;
-      position: relative;
-      bottom: 0;
-      width: 100%;
-    }
-
-    footer a {
-      color: #ffcc00;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0f0a19;
+        --surface:#17122a;
+        --text:#f6f5fb;
+        --muted:#c8c6d6;
+        --brand:#a78bfa;
+        --brand-600:#c4b5fd;
+        --brand-100:#2a2046;
+        --link:#ddd6fe;
+        --ring:#7c3aed;
+        --border:#2b2446;
+        --shadow:0 1px 2px rgba(0,0,0,.25);
       }
+    }
 
-      nav a {
-        display: block;
-        margin: 0.5rem 0;
-      }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      line-height:1.6;
+      color:var(--text);
+      background:var(--bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* Header */
+    header{
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      text-align:center;
+      padding: 1rem 1rem 0.75rem;
+      position: sticky;
+      top:0;
+      z-index:100;
+    }
+    header h1{
+      margin:0;
+      font-size: 1.8rem;
+      font-weight:700;
+    }
+    header p.sub{
+      margin:.25rem 0 0.75rem;
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    /* Nav */
+    nav .nav{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:1.25rem;
+    }
+    nav a{
+      text-decoration:none;
+      color:var(--text);
+      font-size:1rem;
+      position:relative;
+      padding-bottom:2px;
+    }
+    nav a::after{
+      content:"";
+      position:absolute;
+      left:0; bottom:0;
+      width:100%; height:2px;
+      background:var(--brand);
+      transform:scaleX(0);
+      transform-origin:right;
+      transition: transform .25s ease;
+    }
+    nav a:hover::after{
+      transform:scaleX(1);
+      transform-origin:left;
+    }
+    nav a:focus-visible{
+      outline:2px solid var(--ring);
+      outline-offset:3px;
+    }
+
+    /* Main */
+    .wrap{ max-width:860px; margin:0 auto; padding:0 1rem; }
+    main{ padding: 2rem 0 3rem; }
+    section{
+      background: var(--surface);
+      border:1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.25rem;
+      margin: 1rem 0 1.25rem;
+      box-shadow: var(--shadow);
+    }
+    section h2{
+      margin:0 0 .5rem;
+      font-size:1.3rem;
+      color:var(--brand);
+    }
+    section h3{
+      margin:1rem 0 .25rem;
+      font-size:1.05rem;
+      color:var(--link);
+    }
+    p, li{ font-size:1rem; }
+    a{ color:var(--link); }
+    a:hover{ text-decoration:underline; }
+
+    .about{
+      display:grid;
+      grid-template-columns:180px 1fr;
+      gap:1.2rem;
+      align-items:start;
+    }
+    .headshot{
+      width:180px; height:180px;
+      object-fit:cover;
+      border-radius:12px;
+      border:2px solid var(--brand-100);
+      box-shadow: var(--shadow);
+      display:block;
+    }
+    .caption{
+      font-size:.85rem;
+      color:var(--muted);
+      text-align:center;
+      margin-top:.35rem;
+    }
+    ul{ padding-left:1.2rem; }
+
+    /* Footer */
+    footer{
+      text-align:center;
+      padding:2rem 1rem;
+      color:var(--muted);
+    }
+    .cv-button{
+      display:inline-block;
+      margin-top:.5rem;
+      padding:.55rem .9rem;
+      border-radius:.65rem;
+      background: var(--brand-100);
+      color: var(--link);
+      text-decoration:none;
+      border:1px solid var(--border);
+    }
+    .cv-button:hover{ text-decoration:none; }
+
+    @media(max-width:640px){
+      .about{ grid-template-columns:1fr; }
+      .headshot{ width:140px; height:140px; margin:0 auto; }
     }
   </style>
 </head>
-
 <body>
   <header>
     <h1>Ruoqing Yao</h1>
-    <p>Ph.D. student in Linguistics, UC Santa Cruz</p>
+    <p class="sub">Ph.D. student in Linguistics, UC Santa Cruz</p>
+    <nav aria-label="Primary">
+      <div class="nav">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#presentations">Presentations</a>
+        <a href="#cv">CV</a>
+        <a href="#contact">Contact</a>
+        <a href="#other">Other</a>
+      </div>
+    </nav>
   </header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#research">Research</a>
-    <a href="#presentations">Presentations</a>
-    <a href="#cv">CV</a>
-    <a href="#contact">Contact</a>
-    <a href="#other">Other</a>
-  </nav>
-
-  <main>
-    <section id="about" style="display: flex; align-items: flex-start; gap: 20px; max-width: 900px; margin: 2rem auto; padding: 1rem; background-color: #fff; border-radius: 8px;">
-      <img src="headshot.png" style="width: 200px; height: 200px; object-fit: cover; border: 2px solid #fff;">
-      <div>
-        <h2>About Me</h2>
-        <p>
-          Hello! My name is Ruoqing Yao (姚若轻). I'm a second-year PhD student in the Linguistics Department at UC Santa Cruz. Before joining UCSC, I received my B.S. in Computer Science and Linguistics from William & Mary. I'm originally from Beijing, China.
-
-        </p>
+  <main class="wrap">
+    <section id="about">
+      <h2>About</h2>
+      <div class="about">
+        <div>
+          <img src="headshot2.jpg" alt="Headshot of Ruoqing Yao" class="headshot" />
+          <div class="caption">Photo by Jungu Kang</div>
+        </div>
+        <div>
+          <p>Hello! My name is Ruoqing Yao (姚若轻). I am a third-year Ph.D. student in the Linguistics Department at UC Santa Cruz. Before joining UCSC, I received my B.S. in Computer Science and Linguistics from William & Mary. I am originally from Beijing, China.</p>
+        </div>
       </div>
     </section>
-    
 
     <section id="research">
       <h2>Research</h2>
-      <p>
-        I'm primarily a psycholinguist. My main research interest lies on the intersect of ambiguity resolution and pronoun resolution. I am currently investigating constraints on the pronominal ambiguity advantage effect. 
-        My advisor is <a href="https://people.ucsc.edu/~mwagers/" target="_blank">Matt Wagers</a>. I'm currently coordinating <a href="https://sites.google.com/a/ucsc.edu/s-lab/home?authuser=0" target="_blank">s/lab</a>.
+      <p>I am primarily a psycholinguist. My main research interest lies at the intersection of ambiguity resolution and pronoun resolution. I currently investigate the processing mechanisms of pronominal ambiguity. I am interested in the boundaries among ambiguity advantage, disadvantage, and underspecification. My advisor is
+        <a href="https://people.ucsc.edu/~mwagers/" target="_blank" rel="noopener">Matt Wagers</a>.
       </p>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+      <h3>2025</h3>
+      <p><strong>Yao, R.</strong>, Wagers, M. Who and when gets the race? Two processing routes for the advantages and penalties of pronominal ambiguity resolution. Proceedings of the 44th Annual Conference of the Cognitive Science Society. San Francisco, USA: Cognitive Science Society.</p>
     </section>
 
     <section id="presentations">
       <h2>Presentations</h2>
 
-      
       <h3>2024</h3>
-      <p>
-        <strong>Yao, R.</strong>, Lu, J., Degen, J. Perceived interpretability predicts satiability for CNPC islands but not WH islands. California Meeting on Psycholinguistics. Stanford University, Stanford, CA. January 14.
-      </p>
-      <p>
-        <strong>Yao, R.</strong>, Hogoboom, A. Resumptive Pronouns in Islands Show Confusability Advantage Effect. 2024 Linguistics Society of America Annual Meeting. New York City, NY. January 7.
-      </p>
-    
+      <p><strong>Yao, R.</strong>, Lu, J., Degen, J. Perceived interpretability predicts satiability for CNPC islands but not WH islands. California Meeting on Psycholinguistics. Stanford University, Stanford, CA. January 14.</p>
+      <p><strong>Yao, R.</strong>, Hogoboom, A. Resumptive Pronouns in Islands Show Confusability Advantage Effect. 2024 Linguistics Society of America Annual Meeting. New York City, NY. January 7.</p>
+
       <h3>2023</h3>
-      <p>
-        <strong>Yao, R.</strong> The Processing of Resumptive Pronouns in Islands. Graduate and Honors Research Symposium. William & Mary, Williamsburg, VA. March 30.
-      </p>
+      <p><strong>Yao, R.</strong> The Processing of Resumptive Pronouns in Islands. Graduate and Honors Research Symposium. William & Mary, Williamsburg, VA. March 30.</p>
 
       <h2>Posters</h2>
       <h3>2025</h3>
-      <p>
-        <strong>Yao, R.</strong>, Wagers, M. Who Gets to Race? The Effect of Initial Bias on Pronominal Ambiguity Advantage. Poster at the 38th Annual Conference on Human Sentence Processing. University of Maryland, College Park, MD. March 27-29. [<a href="hsp-2025.pdf" target="_blank">poster (PDF)</a>]
-      </p>
+      <p><strong>Yao, R.</strong>,, Wagers, M. Who and when gets the race? Two processing routes for the advantages and penalties of pronominal ambiguity resolution. Poster at The 47th Annual Meeting of the Cognitive Science Society, San Francisco, CA. July 30-Aug 2.</p>
+      <p><strong>Yao, R.</strong>, Wagers, M. Who Gets to Race? The Effect of Initial Bias on Pronominal Ambiguity Advantage. Poster at the 38th Annual Conference on Human Sentence Processing. University of Maryland, College Park, MD. March 27–29. [<a href="hsp-2025.pdf" target="_blank" rel="noopener">poster (PDF)</a>]</p>
       <h3>2022</h3>
-      <p>
-        Parker, D., Glauser, C., Rust, G., Wright, N., <strong>Yao, R.</strong> Antecedent reactivation leads to faster retrieval: Evidence from ellipsis. Poster at the 35th Annual Conference on Human Sentence Processing. University of California, Santa Cruz, CA. March 24.
-      </p>
-      <p>
-        <strong>Yao, R.</strong> Satiability and Interpretability. Poster at the W&M 2022 Fall Undergraduate Research Symposium. William & Mary, Williamsburg, VA. September 30.
-      </p>
-
+      <p>Parker, D., Glauser, C., Rust, G., Wright, N., <strong>Yao, R.</strong> Antecedent reactivation leads to faster retrieval: Evidence from ellipsis. Poster at the 35th Annual Conference on Human Sentence Processing. University of California, Santa Cruz, CA. March 24–26.</p>
+      <p><strong>Yao, R.</strong> Satiability and Interpretability. Poster at the W&M 2022 Fall Undergraduate Research Symposium. William & Mary, Williamsburg, VA. September 30.</p>
     </section>
 
     <section id="cv">
       <h2>Curriculum Vitae</h2>
       <p>You can find my CV here:</p>
-  
-      <!-- Clickable link to open CV -->
-      <a id="cv-link" href="CV.pdf" target="_blank">CV (PDF)</a>
+      <a class="cv-button" id="cv-link" href="CV.pdf" target="_blank" rel="noopener">Open CV (PDF)</a>
     </section>
-  
-    
-    
 
     <section id="contact">
       <h2>Contact</h2>
       <ul>
-        <li>Email: ryao10 [at] ucsc [dot] edu</a></li>
-        <li>LinkedIn: <a href="https://www.linkedin.com/in/ruoqing-yao-8161121a2/" target="_blank">https://www.linkedin.com/in/ruoqing-yao-8161121a2/</a></li>
+        <li>Email: ryao10 [at] ucsc [dot] edu</li>
+        <li>LinkedIn: <a href="https://www.linkedin.com/in/ruoqing-yao-8161121a2/" target="_blank" rel="noopener">https://www.linkedin.com/in/ruoqing-yao-8161121a2/</a></li>
       </ul>
     </section>
 
     <section id="other">
-      <h2>Other: me not as a linguist</h2>
+      <h2>Other</h2>
       <ul>
-        <li>I play table tennis. I was previously the president for Club Table Tennis at William & Mary. At UCSC, you can often find me playing at the table tennis area in East Field Gym with <a href="https://www.instagram.com/ucscttc?igsh=NTc4MTIwNjQ2YQ==" target="_blank">UCSC Table Tennis Club</a>.  </a></li>
+        <li>I play table tennis. I'm currently the Captain of UCSC Table Tennic Club. I previously served as the President of William & Mary Club Table Tennis between 2021-2023. You can often find me playing at the table tennis area in East Field Gym with <a href="https://www.instagram.com/ucscttc?igsh=NTc4MTIwNjQ2YQ==" target="_blank">UCSC Table Tennis Club</a>. </a></li>
+      </ul>
+      <ul>
+        <li>Name pronunciation: [jɑ̌ʊ35 ɻû̯ɔ51 t͡ɕʰíŋ55]</li>
       </ul>
     </section>
   </main>
 
   <footer>
-    <p>
-      &copy; <span id="year"></span> Ruoqing Yao
-    </p>
+    <div class="wrap">&copy; <span id="year"></span> Ruoqing Yao</div>
   </footer>
 
   <script>
-    // Dynamically set the current year in the footer
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
-
 </html>
